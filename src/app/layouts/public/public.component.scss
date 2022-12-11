@@ -1,0 +1,9 @@
+@import "src/themes/variables.scss";
+
+
+
+@include media("<tablet") {
+}
+
+@include media(">mobile", "<desktop") {
+}
