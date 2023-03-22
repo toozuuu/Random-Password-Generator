@@ -1,15 +1,14 @@
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {HypermediaResponse} from './models';
 
 export abstract class CommonAPIOperations<T, D, O> {
 
   protected constructor(protected operationName: string, protected _url: string, protected httpClient: HttpClient) {
   }
 
-  findAll(page?: number, size?: number, sort?: string): Observable<HypermediaResponse<T>> {
-    return this.httpClient.get<HypermediaResponse<T>>(this._url + (page || size || sort ? '?' : '') + (page ? 'page=' + page + '&' : '') + (size ? 'size=' + size + '&' : '') + (sort ? 'sort=' + sort + '&' : ''));
-  }
+  // findAll(page?: number, size?: number, sort?: string): Observable<HypermediaResponse<T>> {
+  //   return this.httpClient.get<HypermediaResponse<T>>(this._url + (page || size || sort ? '?' : '') + (page ? 'page=' + page + '&' : '') + (size ? 'size=' + size + '&' : '') + (sort ? 'sort=' + sort + '&' : ''));
+  // }
 
   findOne(id: string): Observable<T> {
     return this.httpClient.get<T>(this._url + '/' + id);

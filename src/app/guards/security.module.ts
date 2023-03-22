@@ -9,9 +9,7 @@ export function jwtOptionsFactory() {
     },
     disallowedRoutes: [
       // add all public api endpoints here.
-      "/dashboard-service/oauth/initiate",
-      "/dashboard-service/oauth/token",
-      "/dashboard-service/users/create"
+      "/API_SERVICE/####/####",
     ]
   }
 }
