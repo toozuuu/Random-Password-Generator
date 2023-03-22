@@ -1,1 +1,43 @@
-<div>public component</div>
+<div class="container">
+  <mat-card>
+    <mat-card-content>
+      <h1>Password Generator</h1>
+      <div class="input-field">
+        <input type="email" matInput [value]="password" [ngClass]="{'password-change': passwordGenerated}">
+
+        <div class="row">
+          <div class="password-strength" *ngIf="password" [style.background-color]="backgroundColor">
+            {{ getPasswordStrength(password)}}
+          </div>
+          <button mat-fab color="primary" class="copy" [cdkCopyToClipboard]="password">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        </div>
+
+      </div>
+
+      <div class="options">
+        <div class="length">
+          <span>Password length: {{passwordLength}}</span>&nbsp;&nbsp;
+          <mat-slider min="3" max="20" step="1" showTickMarks discrete [displayWith]="formatLabel">
+            <input matSliderThumb [(ngModel)]="passwordLength">
+          </mat-slider>
+        </div>
+        <div class="special">
+          <span>Characters used:</span>
+          <mat-checkbox [(ngModel)]="passwordUpperCase">ABC</mat-checkbox>
+
+          <mat-checkbox [(ngModel)]="passwordLowerCase">abc</mat-checkbox>
+
+          <mat-checkbox [(ngModel)]="passwordSymbols">#$&</mat-checkbox>
+
+          <mat-checkbox [(ngModel)]="passwordNumbers">123</mat-checkbox>
+        </div>
+      </div>
+
+
+      <button mat-raised-button color="primary" (click)="generatePassword()">Generate Random Password</button>
+    </mat-card-content>
+    <span>version 1.0.0 @ Sachin Dilshan</span>
+  </mat-card>
+</div>
